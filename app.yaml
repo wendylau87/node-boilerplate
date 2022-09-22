@@ -1,0 +1,66 @@
+service: "ms-boilerplate"
+pod: "default"
+environment: "sit"
+port: "8090"
+application:
+  logger:
+    level: "info"
+  kafka:
+    consumer:
+      heartbeat_timeout: "30000"
+      topics:
+        topic1: "ms-boilerplate.usecase.topic1"
+        topic2: "ms-boilerplate.usecase.topic2"
+    brokers:
+      broker1:
+        host: "askyourfriend"
+        port: "askyourfriend"
+      broker2:
+        host: "askyourfriend"
+        port: "askyourfriend"
+  redis:
+    host: "askyourfriend"
+    port: "askyourfriend"
+    max_retry: "3"
+    retry_interval: "1000"
+  consul:
+    host: "10.6.0.94"
+    port: "80"
+  database:
+    mysql:
+      name: "ms_boilerplate"
+      host: "askyourfriend"
+      username: "askyourfriend"
+      password: "askyourfriend"
+      port: "3306"
+      logging: "true"
+      connect_timeout: "10000"
+      pool:
+        max: "3"
+        min: "0"
+        acquire: "10000"
+        idle: "30000"
+        idle_timeout: "3000"
+        evict: "30000"
+      timezone: "+07:00"
+business:
+  usecase:
+    cashback:
+      kaspro_bp: ""
+  domain:
+    aol:
+      api_base_url: "askyourfriend"
+    kaspro:
+      path_user_inquiry: "askyourfriend"
+scheduler:
+  max_count: "4"
+  min_count: "3"
+  pooling_interval: "3000"
+  idle_timeout: "2000"
+  min_pod_count: "3"
+  task:
+    example_topic:
+      max_partition: "8"
+      worker_count: "2"
+      interval: "5123"
+      timeout: "0"
